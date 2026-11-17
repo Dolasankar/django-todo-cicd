@@ -2,6 +2,10 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_COMPOSE = 'C:\\Users\\sankar\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker-compose.exe'
+    }
+
     options {
         timestamps()
         disableConcurrentBuilds()
@@ -19,19 +23,19 @@ pipeline {
         stage('Verify Docker') {
             steps {
                 bat 'docker version'
-                bat 'docker compose version'
+                bat '"%DOCKER_COMPOSE%" version'
             }
         }
 
         stage('Build and Deploy') {
             steps {
-                bat 'docker compose up -d --build'
+                bat '"%DOCKER_COMPOSE%" up -d --build'
             }
         }
 
         stage('Verify Application') {
             steps {
-                bat 'docker compose ps'
+                bat '"%DOCKER_COMPOSE%" ps'
             }
         }
     }
