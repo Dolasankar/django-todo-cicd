@@ -65,7 +65,7 @@ Please check the Jenkins Console Output.
 Regards,
 Jenkins
                 """,
-                to: 'YOUR_GMAIL_ADDRESS'
+                to: 'dolasankarcherukunuru@gmail.com'
             )
         }
     }
