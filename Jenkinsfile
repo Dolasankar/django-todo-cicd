@@ -24,6 +24,7 @@ pipeline {
             steps {
                 bat 'docker version'
                 bat '"%DOCKER_COMPOSE%" version'
+                bat 'exit /b 1'
             }
         }
 
